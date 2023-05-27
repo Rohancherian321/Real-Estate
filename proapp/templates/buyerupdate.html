@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>user update</title>
+</head>
+{% extends "buyerpages.html" %}
+{% block title %} Displaying model data {% endblock title %}
+{% block content %}
+
+
+<body><BR><BR><BR><BR><BR><BR>
+<CENTER>
+<form method="post" enctype="multipart/form-data" class="form-inline" action="/updatebuyer/">
+ <h3>Update Buyer Details </h3>
+    {% csrf_token %}
+    {{form.as_p}}
+
+    <input class="user-input-btn" type="submit" value="UPDATE">
+    </CENTER>
+</form>
+</body>
+{% endblock content %}
+</html>

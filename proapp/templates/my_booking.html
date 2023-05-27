@@ -1,0 +1,157 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  
+    <title>EstateAgency Bootstrap Template - Index</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+  
+    <!-- Favicons -->
+    <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+    <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+  
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  
+    <!-- Template Main CSS File -->
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+  
+</head>
+
+{% block title %} Displaying model data {% endblock title %}
+{% block content %}
+<body>
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      table th,
+      table td {
+        border: 1px solid black;
+        padding: 8px;
+      }
+      
+      table th {
+        background-color: #f2f2f2;
+      }
+      
+      table tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      
+      table tr:hover {
+        background-color: #ddd;
+      }
+      
+     
+</style>
+<nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
+    <div class="container">
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <a class="navbar-brand text-brand" href="index.html">BUILD YOUR<span class="color-b"> DREAM</span></a>
+
+      <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+        <ul class="navbar-nav">
+
+          <li class="nav-item">
+            <a class="nav-link active" href="/">Home</a>
+          </li>
+{% if request.session.user_name %}
+<li class="nav-item">
+  <a class="nav-link " href="/logout/">Logout</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link " href="/mybook/">My Booking </a>
+</li>
+
+         
+          {% else %}
+         
+
+      
+
+          <li class="nav-item">
+            <a class="nav-link " href="/login/">Login</a>
+          </li>
+      
+          {% endif %}
+
+
+            </div>
+          </li>
+
+          </li>
+        </ul>
+      </div>
+
+      <button type="button" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01">
+        <i class="bi bi-search"></i>
+      </button>
+
+    </div>
+  </nav>
+  <br><br> <br><br> <br><br> <br><br> <br><br>
+<table border="2">
+
+    <tr>
+        
+       
+        <th>Property type</th>
+        
+        <th>District</th>
+        <th>Town</th>
+        <th>Area</th>
+        <th>Book Time</th>
+        <th>Owner Name</th>
+        
+      
+       <th>Status</th>
+       <th>Appoinment Date</th>
+       
+       
+
+    </tr>
+ {% for i in a %}
+
+
+
+<tr>
+    <td>{{i.prop.ptype}}</td>
+    <td>{{i.prop.district}}</td>
+    <td>{{i.prop.town}}</td>
+    <td>{{i.prop.builtarea}}</td>
+    <td>{{i.time}}</td>
+    <td>{{i.owner.oname}}</td>
+   
+    <td>{{i.status}}</td>
+    <td>{{i.app_date}}</td>
+ 
+    
+
+    
+   
+</tr>
+
+   {% endfor %}
+</table>
+</body>
+{% endblock content %}
+</html>
